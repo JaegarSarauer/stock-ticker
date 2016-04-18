@@ -137,7 +137,7 @@ class Application extends CI_Controller {
      * @return string
      */
     function createDropDown($dropdowndata = null, $pagename = null) {
-        $URI = "$_SERVER[REQUEST_URI]"; //reloading page
+        /*$URI = "$_SERVER[REQUEST_URI]"; //reloading page
         
         //error check URI is right
         if (strlen($URI) > 1) {
@@ -148,15 +148,14 @@ class Application extends CI_Controller {
         $URI.='/';
         
         //populates the dropdown & if you change the item it will reload page
-        $result = '<select onchange="window.location=\''."http://$_SERVER[HTTP_HOST]$URI".'\' + this.value;">';
+        $result = '<select onchange="window.location=\''."http://$_SERVER[HTTP_HOST]$URI".'\' + this.value;">';*/
+        
+        $result = array();
         foreach($dropdowndata as $item) {
-            $result .= '<option value="'.$item[0].'"';
-            if ($item[0]==$pagename) {
-                $result .= ' selected="selected"';
-            }
-            $result .= '>'.$item[1] . ' [' . $item[0] . ']' . '</option>';
+            $single = array();
+            array_push($single, $item[0], $item[1]);
+            array_push($result, $single);
         }
-        $result .= '</select>';
         return $result;
     }
     

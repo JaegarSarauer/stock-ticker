@@ -15,7 +15,10 @@
 		</div>
             <div id="body">
                 <div id="header">
-                    <div class="jumbotron"><h1>{pageheader}</h1></div>
+                    <div class="jumbotron">
+                        <h1>{pageheader}</h1>
+                        {dropdownMenu}
+                    </div>
                 </div>
 		<div id="content">
 			{content}

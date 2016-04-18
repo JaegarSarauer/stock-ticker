@@ -24,6 +24,7 @@ class Welcome extends Application {
                 $this->data['pageheader'] = 'W E L C O M E';
                 
 		$this->data['contentTitle'] = 'W E L C O M E';//set page title
+                $this->data['dropdownMenu'] = '';
 		
 		//set left table with data from query            
 		$this->data['leftTableColumns'] = $this->createTableColumns(['Name', 'Code', 'Value']);

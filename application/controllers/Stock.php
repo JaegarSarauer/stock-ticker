@@ -22,7 +22,12 @@ class Stock extends Application {
 		$this->data['links'] = $this->createNavigation(3);//create navigation bar - MY_CONTROLLER.php   
                                 
                 $this->data['pageheader'] = $realName . " Stock History";
-		$this->data['dropdowndata'] = $this->createDropDown($this->stocks->getStocksList(), $realName);//create drop down - MY_CONTROLLER.php    
+                
+                
+                $menuLinks = array('menuLinks' => $this->createDropDown($this->stocks->getStocksList(), $realName));
+                var_dump($menuLinks);
+                $this->data['dropdownMenu'] = $this->parser->parse('_dropdown', $menuLinks, true);
+		//$this->data['dropdowndata'] = $this->createDropDown($this->stocks->getStocksList(), $realName);//create drop down - MY_CONTROLLER.php    
 		
 		$fullName = $this->stocks->getStockByCode($realName);//query site
 		$this->data['contentTitle'] = $fullName[1] . ' [' . $fullName[0] . '] = $' . $this->stocks->getStockPrice($realName);//set page title        
